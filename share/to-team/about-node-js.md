@@ -5,9 +5,7 @@
 2. [Node.jsとは](#2nodejsとは)
 3. [Node.jsのメリット](#3nodejsのメリット)
 4. [Node.jsのデメリット](#4nodejsのデメリット)
-5. [npmとは](#5npmとは)
-6. [npmの役割](#6npmの役割)
-7. [npmの使い方](#7npmの使い方)
+5. [npmについて](#5npmについて)
 8. [その他](#8その他)
 
 ## 1.このドキュメントで解消したい疑問
@@ -81,14 +79,10 @@ C10K問題の原因はいくつかありますが、その1つがプロセス数
 
 [参考リンク](https://www.kagoya.jp/howto/it-glossary/develop/nodejs/)
 
-## 5.npmとは
+## 5.npmについて
 
-
-## 6.npmの役割
-
-
-## 7.npmの使い方
-
+[このサイト](https://zenn.dev/ikuraikura/articles/71b917ab11ae690e3cd7)が分かりやすく説明してくれている。
 
 ## 8.その他
 
+情報の誤りや不備がある場合はプルリクエストを出していただけると幸いです。
