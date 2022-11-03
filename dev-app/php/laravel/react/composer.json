@@ -1,0 +1,14 @@
+{
+    "name": "tanaka/react",
+    "autoload": {
+        "psr-4": {
+            "Tanaka\\React\\": "task_management_app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "skip"
+        }
+    ],
+    "require": {}
+}
