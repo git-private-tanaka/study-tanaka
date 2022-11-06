@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  backend:
+    # image: php:8.1
+    build:
+      context: ./docker/php
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./backend:/work/backend
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /work/backend
+    ports:
+      - 8000:8000
+    command: sh -c "composer install && composer update && php artisan serve --host 0.0.0.0 "
+    depends_on:
+      - database
+
+  database:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - TZ=${TZ}
+      - LANG=${LANG}
+    ports:
+      - 3306:3306
+    volumes:
+      - dbdata:/var/lib/mysql
+  
+  frontend:
+    # image: node:16.13.1-alpine
+    build:
+      context: ./docker/react
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./frontend:/frontend
+    command: sh -c "cd frontend && PORT=3000 yarn start"
+    ports:
+      - 3000:3000
+    stdin_open: true
+
+volumes:
+  dbdata:
