@@ -1,18 +1,19 @@
-import React from 'react';
-import { ISquare } from '../interface';
+import React from 'react'
+import { ISquare } from '../interface'
 import Square from './Square'
 interface BoardProps {
-  squares: ISquare[];
-  onClick: (i: number) => void;
+  squares: ISquare[]
+  onClick: (i: number) => void
 }
-function Board(props: BoardProps) {
-  const renderSquare = (i: number) => {
+
+const Board = (props: BoardProps): JSX.Element | null => {
+  const renderSquare = (i: number): JSX.Element | null => {
     return (
       <Square
         value={props.squares[i]}
         onClick={() => props.onClick(i)}
       />
-    );
+    )
   }
   return (
     <div>
@@ -32,6 +33,6 @@ function Board(props: BoardProps) {
         {renderSquare(8)}
       </div>
     </div>
-  );
+  )
 }
-export default Board;
+export default Board
